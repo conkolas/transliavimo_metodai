@@ -1,0 +1,124 @@
+/*-------Main elements-------*/
+
+<mainPart>          ::=      { <function> } 'void Main' <functionBlock> 
+<functionBlock>     ::=     '{' <statments> '}'
+
+/*-------Functions-------*/
+
+<function>          ::=     <funcType> <funcName> '(' [ <params> ] ')' <functionBlock>
+<params>         	::=     <param> { ',' <param> }
+<param>             ::=     <varType> <var> 
+
+
+/*-------Statements-------*/
+
+<statments>         ::=     <statement> { ';' <statement> } ';'
+<statement>         ::=     <simpleStatement> | <controlStatement> | <funcCall> | <returnStatement>
+
+<simpleStatement>   ::=     <varDeclaration> | <assignmentStmt> | <ioStmt>
+<controlStatement>  ::=     <forLoop> | <whileLoop> | <ifStmt> | <eachStmt>
+<funcCall>      	::=     <functionName> [ <callParamList> ]
+<callParamList>     ::=     '(' <expression> { ',' <expression> } ')'
+
+<returnStatement>   ::=     'return' [ <expression> ]
+
+/*-------Simple Statements-------*/
+
+<varDeclaration>    ::=     <varType> <variableList> [ '=' <expression> ]
+<assignmentStmt>    ::=     <variable> <assigmentOp> <expression>
+
+<ioStatement>       ::=     <input> | <output>
+<input>         	::=     'scan' <var>
+<output>        	::=     'print' <expression>
+
+
+/*-------Control Statements-------*/
+
+<for>           	::=     'for (' <identifier> '=' <int> ';' <expression> ')' <functionBlock>
+<while>         	::=     'while' <expression> <functionBlock>
+<ifStmt>        	::=     'if' <expression> <functionBlock> [ 'else' ( <functionBlock> | <ifStmt> ) ] 
+
+/*-------Expressions-------*/
+
+<expression>        ::=     <expression2> [ <or> <expression> ]
+<expression2>       ::=     <expression3> [ <and> <expression2> ]
+<expression3>       ::=     <expression4> [ <comparison> <expression3> ]
+<expression4>       ::=     <term> { <add> <expression4> }
+<term>              ::=     <factor> { <multi> <term> }
+<factor>            ::=     '(' <expression> ')' | <variable> | <constant> | <boolean> | <functionCall> | <set> | '!' <expression>
+
+/*-------Low Level Definitions-------*/
+
+<variableList>      ::=     <variable> { ',' <variable> }
+<type>              ::=     'int' | 'float' | 'string' | 'bool'
+<returnType>        ::=     <type> | 'void'
+
+<number>            ::=     <int> | <float>
+<int>               ::=     [ <sign> ] <digitSeq> 
+<float>             ::=     <integer> ',' <digitSeq>
+
+<identifier>        ::=     <letter> { <letter> | <digit> }
+<var>          		::=     <identifier> | <varArray>
+<varArray>          ::=     <identifier> '[' [ <expression> ] ']'   
+<functionName>      ::=    	'$' <identifier>
+
+<sign>              ::=     '+' | '-'
+<digitSeq>          ::=     <digit> { <digit> }
+<digit>             ::=     '0' | ... | '9'
+<letter>            ::=     'a' | ... | 'z' | 'A' | ... | 'Z'
+
+<set>               ::=     '(' [ <expression> { ',' <expression> } ] ')'
+
+<and>             	::=     '&&'
+<or>              	::=     '||'
+<comparison>      	::=     '?=' | '<' | '<=' | '>' | '>=' | '!='
+<add>             	::=     '+' | '-'
+<multi>           	::=     '*' | '/'
+<assigment>       	::=     '=' | '-=' | '+=' | '*=' | '/='
+
+<string>            ::=     "'" { <stringChar> } "'"
+<stringChar>        ::=     anyCharacterExceptSingleQuote | "\'"
+
+<boolean>           ::=     'true' | 'false'
+<constant>          ::=     <string> | <number>
+
+
+/*-------Program example-------*/
+	
+void $printSorted(int array, int size) {
+	print("Sorted list in ascending order:");
+	int c;
+	for ( c = 0 ; c < size) {
+		print(array[c]);
+	}
+}
+ 
+void Main
+{
+	int array[100], size, c, d, swap;
+	
+	print("Enter number of elements");
+	scan(size);
+	
+	print("Enter integers:");
+	
+	for (c = 0; c < size)
+	{
+		scan(array[c]);
+	}
+	
+	for (c = 0 ; c < ( size - 1 ))
+	{
+		for (d = 0 ; (d < size - c - 1))
+		{
+			if (array[d] > array[d+1])
+			{
+				swap       = array[d];
+				array[d]   = array[d+1];
+				array[d+1] = swap;
+			}
+		}
+	}
+	
+	$printSorted(array, size);	
+}
