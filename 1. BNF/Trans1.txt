@@ -1,11 +1,11 @@
 /*-------Main elements-------*/
 
-<mainPart>          ::=      { <function> } 'void Main' <functionBlock> 
-<functionBlock>     ::=     '{' <statments> '}'
+<mainPart>          ::=      { <function> } 'void Main' <funcBlock> 
+<funcBlock>     	::=     '{' <statments> '}'
 
 /*-------Functions-------*/
 
-<function>          ::=     <funcType> <funcName> '(' [ <params> ] ')' <functionBlock>
+<function>          ::=     <funcType> <funcName> '(' [ <params> ] ')' <funcBlock>
 <params>         	::=     <param> { ',' <param> }
 <param>             ::=     <varType> <var> 
 
@@ -34,9 +34,9 @@
 
 /*-------Control Statements-------*/
 
-<for>           	::=     'for (' <identifier> '=' <int> ';' <expression> ')' <functionBlock>
-<while>         	::=     'while' <expression> <functionBlock>
-<ifStmt>        	::=     'if' <expression> <functionBlock> [ 'else' ( <functionBlock> | <ifStmt> ) ] 
+<for>           	::=     'for (' <identifier> '=' <int> ';' <expression> ')' <funcBlock>
+<while>         	::=     'while' <expression> <funcBlock>
+<ifStmt>        	::=     'if' <expression> <funcBlock> [ 'else' ( <funcBlock> | <ifStmt> ) ] 
 
 /*-------Expressions-------*/
 
@@ -45,7 +45,7 @@
 <expression3>       ::=     <expression4> [ <comparison> <expression3> ]
 <expression4>       ::=     <term> { <add> <expression4> }
 <term>              ::=     <factor> { <multi> <term> }
-<factor>            ::=     '(' <expression> ')' | <variable> | <constant> | <boolean> | <functionCall> | <set> | '!' <expression>
+<factor>            ::=     '(' <expression> ')' | <variable> | <constant> | <boolean> | <funcCall> | <set> | '!' <expression>
 
 /*-------Low Level Definitions-------*/
 
@@ -71,7 +71,7 @@
 
 <and>             	::=     '&&'
 <or>              	::=     '||'
-<comparison>      	::=     '?=' | '<' | '<=' | '>' | '>=' | '!='
+<comparison>      	::=     '==' | '<' | '<=' | '>' | '>=' | '!='
 <add>             	::=     '+' | '-'
 <multi>           	::=     '*' | '/'
 <assigment>       	::=     '=' | '-=' | '+=' | '*=' | '/='
