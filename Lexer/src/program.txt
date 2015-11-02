@@ -1,0 +1,41 @@
+void $printSorted(int array, int size) {
+    print("Sorted list in ascending order:");
+    int c;
+    for ( c = 0 ; c < size ; c++ ) {
+        print(array[c]);
+    }
+}
+
+void Main
+{
+    int array[100], size, c, d, swap;
+
+    print("Enter number of elements");
+    scan(size);
+
+    print("Enter integers:");
+
+    // Line comment
+    for (c = 0; c < size; c++) {
+        scan(array[c]);
+    }
+
+    /*
+    Block comment
+    Bubble sort
+    */
+    for (c = 0 ; c < ( size - 1 ))
+    {
+        for (d = 0 ; (d < size - c - 1))
+        {
+            if (array[d] > array[d+1])
+            {
+                swap       = array[d];
+                array[d]   = array[d+1];
+                array[d+1] = swap;
+            }
+        }
+    }
+
+    $printSorted(array, size);
+}

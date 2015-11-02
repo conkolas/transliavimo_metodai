@@ -1,0 +1,17 @@
+Lexer/Lexer.iml
+1. BNF/sample.layout
+Lexer/.idea/compiler.xml
+Lexer/.idea/copyright/profiles_settings.xml
+Lexer/.idea/description.html
+Lexer/.idea/encodings.xml
+Lexer/.idea/misc.xml
+Lexer/.idea/modules.xml
+Lexer/.idea/uiDesigner.xml
+Lexer/.idea/vcs.xml
+Lexer/.idea/workspace.xml
+Lexer/out/production/Lexer/Lexer$1.class
+Lexer/out/production/Lexer/Lexer.class
+Lexer/out/production/Lexer/Main.class
+Lexer/out/production/Lexer/program.txt
+Lexer/out/production/Lexer/Reader.class
+Lexer/out/production/Lexer/State.class
